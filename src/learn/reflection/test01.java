@@ -24,7 +24,6 @@ public class test01 {
         User u2 = (User) constructor2.newInstance();
         Field name = c1.getDeclaredField("name");
         name.setAccessible(true);
-        name.set(u2, "wangwu");
         System.out.println(u2.getName());
     }
 }
