@@ -1,8 +1,15 @@
 package learn.Thread;
 
-///
-public class testContainer {
+//利用container作为中间生产者和消费者中间的缓冲区域并使用wait和notifyall来保证生产者和消费者之间的联系
 
+public class testContainer {
+    public static void main(String[] args) {
+        Container container = new Container();
+        productor p = new productor(container);
+        consumer c = new consumer(container);
+        p.start();
+        c.start();
+    }
 }
 
 class productor extends Thread {
@@ -11,11 +18,13 @@ class productor extends Thread {
     public productor(Container container) {
         this.container = container;
     }
+
     @Override
     public void run() {
 
         for (int i = 0; i < 100; i++) {
             container.push(new chicken(i));
+            System.out.println("生产了" + i + "只鸡");
         }
     }
 
@@ -30,7 +39,7 @@ class consumer extends Thread {
 
     @Override
     public void run() {
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 100; i++) {
             System.out.println(container.pop().id);
         }
     }
