@@ -17,6 +17,8 @@ public class TcpServer {
         while ((len = is.read(buffer)) != -1) {
             fos.write(buffer, 0, len);
         }
+        accept.getOutputStream().write("文件上传成功".getBytes());
+        
         fos.close();
         serverSocket.close();
         accept.close();
