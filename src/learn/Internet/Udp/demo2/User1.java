@@ -20,7 +20,6 @@ public class User1 {
         boolean flag = true;
         while (flag) {
 
-            
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
             buffer = reader.readLine().getBytes();

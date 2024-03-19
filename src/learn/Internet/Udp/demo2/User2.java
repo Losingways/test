@@ -20,7 +20,6 @@ public class User2 {
         boolean flag = true;
         while (flag) {
 
-            
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
             buffer = reader.readLine().getBytes();
@@ -34,7 +33,7 @@ public class User2 {
             }
 
         }
-        
+
     }
 
     static void send(byte[] buffer, DatagramSocket socket) throws Exception {
@@ -56,8 +55,8 @@ public class User2 {
         public void run() {
             while (flag) {
                 try {
-                    
-                    if(ds.isClosed() == true) {
+
+                    if (ds.isClosed() == true) {
                         flag = false;
                         break;
                     }
@@ -68,7 +67,7 @@ public class User2 {
                         System.out.println("您已下线");
                         return;
                     }
-                    
+
                     String msg = new String(packet.getData(), 0, packet.getLength());
                     System.out.println("user2: " + msg);
                 } catch (Exception e) {
@@ -76,8 +75,7 @@ public class User2 {
                 }
 
             }
-          
-            
+
         }
     }
 }
